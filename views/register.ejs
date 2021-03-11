@@ -1,0 +1,43 @@
+<%- include('./layouts/main.ejs')%>
+
+    <section class="container">
+        <form class="reg-form" action="/register" method="POST">
+
+            <ul>
+                <% if(typeof errors !== 'undefined') {%>
+                    <% errors.forEach(error => { %>
+                        <li>
+                            <%=error.message %>
+                        </li>
+                        <%})%>
+                            <%}%>
+            </ul>
+
+            <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="input-box" placeholder="John Doe" maxlength="100">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="input-box" placeholder="JohnDoe@example.com" maxlength="100">
+            </div>
+            <div class="input-group">
+                <label for="username">Choose a username(optional)</label>
+                <input type="text" name="username" id="username" class="input-box" placeholder="JDoe134" maxlength="100">
+            </div>
+            <div class="input-group">
+                <label for="password">Create a password</label>
+                <input type="password" name="password" id="password" class="input-box" placeholder="***..." maxlength="100">
+            </div>
+
+            <button type="submit" class="btn btn-reverse">Register</button>
+
+            <div>
+                <p>Already have an account?
+                    <a href="/login" style="color:#568c9b;">Login</a>
+                </p>
+            </div>
+
+        </form>
+
+    </section>

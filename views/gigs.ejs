@@ -1,0 +1,38 @@
+<%- include('./layouts/main.ejs')%>
+    <section id="gigs" class="container">
+        <h1>All Gigs</h1>
+
+
+        <% if(typeof gigs !== 'undefined') {%>
+            <% gigs.forEach(gig => { %>
+                <div class="gig">
+                    <h3>
+                        <%= gig.title%>
+                    </h3>
+                    <p>
+                        <%= gig.description%>
+                    </p>
+                    <ul>
+                        <li>Budget:
+                            <%= gig.budget%>
+                        </li>
+                        <li><a href="mailto:<%= gig.contact_email%>" class="btn btn-reverse">Apply Now</a></li>
+                    </ul>
+                    <div class="tech">
+                        <small>Technologies Needed: <span><%= gig.technologies%></span></small>
+                    </div>
+                </div>
+
+                <%})%>
+                    <%} else{ %>
+                        <p>No gigs available...</p>
+                        <% }%>
+
+
+
+
+
+
+
+
+    </section>
